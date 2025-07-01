@@ -7,49 +7,51 @@
 
 ---
 
-## 🛒 Descripción
+## 📝 Descripción
 
-**NaturaLab** es una tienda online ficticia dedicada a la venta de productos naturales, frutos secos y merchandising ecológico. El objetivo de este proyecto es aplicar todos los conocimientos adquiridos en el curso de React JS de Coderhouse, desarrollando una aplicación web moderna, escalable y con una experiencia de usuario atractiva.
+**NaturaLab** es una tienda online ficticia dedicada a la venta de productos naturales, frutos secos y merchandising ecológico. Este proyecto fue desarrollado como entrega final del curso de React JS en Coderhouse, aplicando las últimas prácticas y tecnologías del ecosistema React.
 
 ---
 
 ## 🚀 Tecnologías Utilizadas
 
 - **React 19**  
-  Biblioteca principal para la construcción de interfaces de usuario basadas en componentes reutilizables.
-
+  Framework principal para la construcción de interfaces de usuario modernas y reactivas.
 - **Vite**  
-  Herramienta de desarrollo ultrarrápida para proyectos modernos de frontend.
-
-- **React Router DOM**  
-  Manejo de rutas y navegación SPA (Single Page Application).
-
+  Herramienta de desarrollo ultrarrápida para proyectos frontend.
+- **React Router DOM v7**  
+  Navegación SPA (Single Page Application) y manejo avanzado de rutas.
 - **Firebase (Firestore)**  
-  Base de datos en tiempo real para almacenar y consultar productos y órdenes de compra.
-
+  Base de datos NoSQL en la nube para almacenamiento de productos y órdenes.
 - **SweetAlert2**  
-  Librería para mostrar alertas y notificaciones personalizadas y atractivas.
-
+  Alertas y notificaciones visuales personalizadas.
 - **CSS personalizado**  
-  Estilos propios para una identidad visual única, incluyendo fuentes personalizadas.
+  Estilos propios y fuentes customizadas para una identidad visual única.
 
 ---
 
 ## 🖥️ Funcionalidades Principales
 
-- **Catálogo de productos**: Visualiza todos los productos disponibles, filtrados por categorías.
-- **Detalle de producto**: Consulta información detallada de cada producto, incluyendo imagen, descripción, precio y stock.
-- **Carrito de compras**: Añade productos al carrito, modifica cantidades y elimina ítems.
-- **Checkout**: Completa el formulario de compra y visualiza el resumen de tu pedido.
-- **Persistencia de datos**: Los productos y las órdenes se gestionan a través de Firebase Firestore.
-- **Alertas y feedback**: Notificaciones visuales para acciones importantes (agregar al carrito, errores de stock, etc).
-- **Navegación amigable**: SPA con rutas protegidas y manejo de páginas no encontradas.
+- **Catálogo de productos:** Visualización y filtrado por categorías.
+- **Detalle de producto:** Información detallada, imagen, precio y stock.
+- **Carrito de compras:** Añadir, modificar y eliminar productos.
+- **Checkout:** Formulario de compra y resumen del pedido.
+- **Persistencia:** Productos y órdenes gestionados en Firebase Firestore.
+- **Alertas visuales:** Feedback inmediato para acciones clave.
+- **SPA y rutas protegidas:** Navegación fluida y manejo de errores 404.
 
 ---
 
 ## 📸 Capturas
 
 ![Vista principal de NaturaLab](src/assets/CapturaDeTienda.png)
+
+---
+
+## ⚙️ Requisitos Previos
+
+- Node.js >= 18.x
+- npm >= 9.x
 
 ---
 
@@ -68,13 +70,16 @@
    npm install
    ```
 
-3. **Inicia el servidor de desarrollo:**
+3. **Configura Firebase (opcional):**  
+   Si deseas usar tu propio proyecto de Firebase, reemplaza la configuración en `src/components/firebase.js`.
+
+4. **Inicia el servidor de desarrollo:**
 
    ```bash
    npm run dev
    ```
 
-4. **Accede a la app:**  
+5. **Accede a la app:**  
    Abre [http://localhost:5173](http://localhost:5173) en tu navegador.
 
 ---
@@ -100,15 +105,32 @@ src/
 
 ---
 
-## 🎯 Objetivo del Proyecto
-
-El propósito de **NaturaLab** es demostrar el dominio de React JS, incluyendo:
+## 🎯 Objetivos y Buenas Prácticas
 
 - Componentización y reutilización de código.
-- Manejo de estado y contexto global (Context API).
+- Manejo de estado global con Context API.
 - Integración con servicios externos (Firebase).
-- Navegación avanzada con React Router.
-- Buenas prácticas de desarrollo frontend.
+- Navegación avanzada y manejo de rutas.
+- Accesibilidad y experiencia de usuario.
+- Código limpio, modular y fácil de mantener.
+
+---
+
+## 🚀 Despliegue
+
+El proyecto está desplegado en Vercel:  
+[https://naturalab.vercel.app/](https://naturalab.vercel.app/)
+
+Puedes desplegar tu propia versión fácilmente conectando el repo a Vercel o Netlify.
+
+---
+
+## 💡 Mejoras Futuras
+
+- Autenticación de usuarios.
+- Panel de administración para gestión de productos.
+- Integración con pasarelas de pago reales.
+- Tests automatizados y mejoras de accesibilidad.
 
 ---
 
@@ -121,4 +143,4 @@ Proyecto realizado para la cursada de **React JS** en [Coderhouse](https://www.c
 ---
 
 > ¡Gracias por visitar el proyecto!  
-> Si tienes sugerencias o encuentras algún bug, no dudes en abrir un issue o contactar al autor.
+> ¿Tienes sugerencias o encontraste algún bug? Abre un issue o contacta al autor.
