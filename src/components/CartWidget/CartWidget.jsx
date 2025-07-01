@@ -1,5 +1,5 @@
 import "../NavBar/NavBar.css";
-import carro from "../../../assets/carro.png";
+import carro from "../../assets/carro.png";
 import { useCart } from "../CartContext/CartContext.jsx";
 import { Link } from "react-router-dom";
 

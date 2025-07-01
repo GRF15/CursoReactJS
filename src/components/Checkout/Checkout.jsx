@@ -3,7 +3,7 @@ import "./Checkout.css";
 import { useCart } from "../CartContext/CartContext.jsx";
 import { getLocalImage } from "../utils/getLocalImage.jsx";
 import { getFirestore, collection, addDoc, Timestamp } from "firebase/firestore";
-import { app } from "../firebase";
+import { app } from "../firebase.js";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
