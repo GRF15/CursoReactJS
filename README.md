@@ -115,8 +115,8 @@ El propósito de **NaturaLab** es demostrar el dominio de React JS, incluyendo:
 ## 👨‍💻 Autor
 
 Gabriel Rodriguez  
-[LinkedIn](https://www.linkedin.com/in/tu-linkedin)  
-Proyecto realizado para la cursada de **React JS** en [Coderhouse](https://www.coderhouse.com/).
+[LinkedIn](https://www.linkedin.com/in/rodriguez-gabriel-fullstackdeveloper/)  
+Proyecto realizado para la cursada de **React JS** en [Coderhouse](https://www.coderhouse.com/uy/cursos/reactjs).
 
 ---
 
