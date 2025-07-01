@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'Manrope';
+  src: url('../../assets/Manrope.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../../assets/OpenSans.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

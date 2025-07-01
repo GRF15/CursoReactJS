@@ -1,0 +1,11 @@
+.no-stock-confirm-btn {
+  background: #8bb364;
+  color: #fff;
+  cursor: pointer;
+}
+
+.no-stock-popup {
+  background: #ffee98;
+  border-radius: 0.5rem;
+}
+

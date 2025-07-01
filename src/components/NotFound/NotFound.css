@@ -1,0 +1,28 @@
+.notfound-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 5rem;
+  font-family: 'Manrope';
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.notfound-btn {
+  background: #8BB364;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.7rem 1.5rem;
+  font-size: 1.2rem;
+  font-family: 'Manrope';
+  text-decoration: none;
+  margin-top: 1rem;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.notfound-btn:hover {
+  background: #6b944d;
+}

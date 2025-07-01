@@ -1,0 +1,15 @@
+@import '../Fonts/Fonts.css';
+
+.contenidoMostrado {
+  padding: 2rem;
+  text-align: center;
+}
+
+h1 {
+  font-family: 'OpenSans';
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  margin-top: 2.5rem;
+}
+
+
