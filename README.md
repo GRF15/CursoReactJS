@@ -49,7 +49,7 @@
 
 ## 📸 Capturas
 
-![Vista principal de NaturaLab](src/assets/FrutosSecos1.jpg)
+![Vista principal de NaturaLab](src/assets/CapturaDeTienda.png)
 
 ---
 
