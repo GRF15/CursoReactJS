@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import "./ItemDetail.css";
 import ItemCount from "./ItemCount.jsx";
 import {useCart} from "../NavBar/Cart/CartContext.jsx";
@@ -7,6 +7,8 @@ import Swal from "sweetalert2";
 
 function ItemDetail({ item }) {
   const { addToCart } = useCart();
+  const [addedToCart, setAddedToCart] = useState(false);
+
   const AddedToCart = Swal.mixin({
     toast: true,
     position: "top-end",
@@ -31,6 +33,7 @@ function ItemDetail({ item }) {
 
    function handleAdd(qty) {
     addToCart(item, qty);
+    setAddedToCart(true);
     AddedToCart.fire();
   }
 
@@ -43,7 +46,14 @@ function ItemDetail({ item }) {
         <p>{item.description}</p>
         <p><b>${item.price}</b></p>
         <p>En stock: {item.stock}</p>
-        <ItemCount stock={item.stock} initial={1} onAdd={(handleAdd)} />
+        {!addedToCart && (
+          <ItemCount stock={item.stock} initial={1} onAdd={(handleAdd)} />
+        )}
+        {addedToCart && (
+          <div className="added-message">
+            Producto agregado al carrito.
+          </div>
+        )}
       </div>
     </div>
   );
