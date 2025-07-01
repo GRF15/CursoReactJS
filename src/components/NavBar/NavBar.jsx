@@ -1,4 +1,4 @@
-import CartWidget from "./Cart/CartWidget.jsx";
+import CartWidget from "../CartWidget/CartWidget.jsx";
 import "./NavBar.css";
 import { NavLink, Link } from "react-router-dom";
 import logo from "../../assets/naturalab-logo-transparent.png";

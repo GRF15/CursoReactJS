@@ -6,7 +6,7 @@ import Checkout from "./components/Checkout/Checkout.jsx";
 import { Routes, Route } from "react-router-dom";
 import {getProducts} from "./components/db.js";
 import { useEffect } from "react";
-import Cart from "./components/NavBar/Cart/Cart.jsx";
+import Cart from "./components/Cart/Cart.jsx";
 
 
 

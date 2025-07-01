@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./ItemDetail.css";
 import ItemCount from "../ItemCount/ItemCount.jsx";
-import { useCart } from "../NavBar/Cart/CartContext.jsx";
+import { useCart } from "../CartContext/CartContext.jsx";
 import { getLocalImage } from "../utils/getLocalImage.jsx";
 import Swal from "sweetalert2";
 
