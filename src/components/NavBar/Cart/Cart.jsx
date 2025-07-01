@@ -2,9 +2,80 @@ import { useCart } from "./CartContext";
 import { Link } from "react-router-dom";
 import './Cart.css';
 import { getLocalImage } from "../../utils/getLocalImage";
+import { getFirestore, collection, addDoc, Timestamp } from "firebase/firestore";
+import { app } from "../../firebase";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export default function Cart() {
-  const { cart, removeFromCart, updateQuantity } = useCart();
+  const { cart, removeFromCart, updateQuantity, clearCart } = useCart();
+  const [form, setForm] = useState({
+    nombre: "",
+    apellido: "",
+    email: "",
+    telefono: "",
+    direccion: "",
+    detalles: "",
+  });
+  const navigate = useNavigate();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const db = getFirestore(app);
+    const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+
+    const order = {
+      buyer: {
+        nombre: form.nombre,
+        apellido: form.apellido,
+        email: form.email,
+        telefono: form.telefono,
+        direccion: form.direccion,
+        detalles: form.detalles,
+      },
+      items: cart.map(item => ({
+        id: item.id,
+        title: item.title,
+        price: item.price,
+        quantity: item.quantity,
+      })),
+      total,
+      date: Timestamp.fromDate(new Date()),
+    };
+
+    addDoc(collection(db, "Pedidos"), order)
+      .then((docRef) => {
+        clearCart();
+        setForm({
+          nombre: "",
+          apellido: "",
+          email: "",
+          telefono: "",
+          direccion: "",
+          detalles: "",
+        });
+        Swal.fire({
+          icon: "success",
+          title: "¡Compra procesada!",
+          text: `Tu compra fue registrada correctamente. ID: ${docRef.id}`,
+          background: '#ffee98',
+          confirmButtonColor: "#8bb364",
+        }).then(() => {
+          navigate("/"); 
+        });
+      })
+      .catch((error) => {
+        console.log("Error en checkout:", error);
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Hubo un problema al procesar la compra.",
+          background: '#ffee98',
+          confirmButtonColor: "#8bb364",
+        });
+      });
+  }
 
   if (cart.length === 0) {
     return (

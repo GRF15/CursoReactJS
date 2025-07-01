@@ -2,6 +2,10 @@ import { useState } from "react";
 import "./Checkout.css";
 import { useCart } from "../NavBar/Cart/CartContext";
 import { getLocalImage } from "../utils/getLocalImage";
+import { getFirestore, collection, addDoc, Timestamp } from "firebase/firestore";
+import { app } from "../firebase";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 export default function Checkout() {
   const [form, setForm] = useState({
@@ -13,8 +17,8 @@ export default function Checkout() {
     detalles: "",
   });
 
-  const [submitted, setSubmitted] = useState(false);
-  const { cart } = useCart();
+  const { cart, clearCart } = useCart();
+  const navigate = useNavigate();
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -22,8 +26,49 @@ export default function Checkout() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    setSubmitted(true);
-    // Aquí puedes manejar el envío a Firebase o mostrar un mensaje de éxito
+    const db = getFirestore(app);
+
+    const order = {
+      buyer: {
+        nombre: form.nombre,
+        apellido: form.apellido,
+        email: form.email,
+        telefono: form.telefono,
+        direccion: form.direccion,
+        detalles: form.detalles,
+      },
+      items: cart.map(item => ({
+        id: item.id,
+        title: item.title,
+        price: item.price,
+        quantity: item.quantity,
+      })),
+      total,
+      date: Timestamp.fromDate(new Date()),
+    };
+
+    addDoc(collection(db, "Pedidos"), order)
+      .then((docRef) => {
+        Swal.fire({
+          icon: "success",
+          title: "¡Compra procesada!",
+          text: `Tu compra fue registrada correctamente. ID: ${docRef.id}`,
+          background: '#ffee98',
+          confirmButtonColor: "#8bb364",
+        }).then(() => {
+          navigate("/");
+        });
+      })
+      .catch((error) => {
+        console.log("Error al guardar en Firestore:", error);
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Hubo un problema al procesar la compra.",
+          background: '#ffee98',
+          confirmButtonColor: "#8bb364",
+        });
+      });
   }
 
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
@@ -32,7 +77,6 @@ export default function Checkout() {
     <div className="checkout-main-container">
       <h2>Finalizar compra</h2>
       <div className="checkout-flex">
-        {/* Resumen del carrito */}
         <div className="checkout-summary">
           <h3>Resumen de tu compra</h3>
           <ul>
@@ -107,7 +151,6 @@ export default function Checkout() {
               rows={3}
             />
           </label>
-          {submitted && <p className="checkout-success">¡Formulario enviado!</p>}
           <div className="checkout-btn-form-container">
             <button type="submit" className="checkout-boton">
               Finalizar compra
