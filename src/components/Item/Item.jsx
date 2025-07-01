@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Item.css";
-import { getLocalImage } from "../utils/getLocalImage";
+import { getLocalImage } from "../utils/getLocalImage.jsx";
 
 export default function Item({ product }) {
   return (

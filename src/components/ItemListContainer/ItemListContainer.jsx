@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import { getProducts } from "../db.js";
 import ItemList from "../ItemList/ItemList.jsx";
 
-
 export default function ItemListContainer({ mensaje }) {
   const { categoryId } = useParams();
   const [products, setProducts] = useState([]);
