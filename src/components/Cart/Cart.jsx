@@ -1,4 +1,4 @@
-import { useCart } from "./CartContext";
+import { useCart } from "..CartContext/CartContext.jsx";
 import { Link } from "react-router-dom";
 import './Cart.css';
 import { getLocalImage } from "../../utils/getLocalImage";
