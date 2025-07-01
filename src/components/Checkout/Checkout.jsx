@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Checkout.css";
-import { useCart } from "../NavBar/Cart/CartContext.jsx";
+import { useCart } from "../CartContext/CartContext.jsx";
 import { getLocalImage } from "../utils/getLocalImage.jsx";
 import { getFirestore, collection, addDoc, Timestamp } from "firebase/firestore";
 import { app } from "../firebase";
